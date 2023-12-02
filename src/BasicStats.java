@@ -108,26 +108,23 @@ public class BasicStats {
      * Compute the median of an array of numbers.
      */
     public static double median(double ... numbers) {
-    int size = numbers.length;
-    double median = 0.0;
+      bubbleSort(numbers);
 
-    if (size > 0) {
-        Arrays.sort(numbers); // Sorts the array
-      
-        // Check if the length is odd
-        if (size % 2 != 0)
-            median = numbers[size / 2];
-        else // Length is even
-            median = (numbers[(size - 1) / 2] + numbers[size / 2]) / 2.0;
-        
-        //System.out.println(median);
-    } else {
-        System.out.println("Empty array. Cannot calculate median.");
+      int size = numbers.length;
+      double median = 0.0;
+
+      if (size > 0) {
+        if (size % 2 == 0) {
+          median = (numbers[size >> 1] + numbers[(size >> 1) - 1])/2;
+        }
+        else {
+          median = numbers[size >> 1];
+        }
+      }
+
+      return median;
     }
-
-    return median;
-}
-
+  
     /**
      * Compute the mode of an array of numbers.
      */
