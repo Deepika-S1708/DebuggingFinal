@@ -161,7 +161,6 @@ public class BasicStats {
       //Iterate to bubble up O(n^2)
       for (int i = 0; i < size; i++) {
           //Second loop
-          for (int j = 1; j < (size - j); j++) {
           for (int j = 1; j < (size - i); j++) {
               //Bubble up
               if (numArray[j - 1] > numArray[j]) {
@@ -169,7 +168,6 @@ public class BasicStats {
                   numArray[j - 1] = numArray[j];
                   numArray[j] = hold;
               }
-          }
           }
       }
     }
